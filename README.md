@@ -1,131 +1,127 @@
-# 🌾 Food Supply Tracking Dashboard — Sindh Region
+<div align="center">
 
-A production-grade humanitarian logistics monitoring system built for FAO/WFP-style food security tracking across Sindh, Pakistan.
+<img src="docs/screenshots/Food-Security-Dashboard.jpg" alt="Sindh Food Security Monitor — Dashboard Overview" width="100%">
 
-## 🖥️ Live Preview
+<br><br>
 
-Deploy on Vercel in one click — see deployment section below.
+# Sindh Food Security Monitor
+### Humanitarian Logistics Intelligence — FAO / WFP Aligned
+
+**Real-time food supply tracking across 8 Sindh districts — live alerts, IPC classification, district-level gap analysis**
+
+[![Live Platform](https://img.shields.io/badge/🚀_Live_Platform-Visit_Now-227539?style=for-the-badge)](https://sindh-food-supply-tracking-dashboar.vercel.app/dashboard)
+[![Dashboard](https://img.shields.io/badge/📊_Dashboard-Open-16a34a?style=for-the-badge)](https://sindh-food-supply-tracking-dashboar.vercel.app/dashboard)
+[![Districts](https://img.shields.io/badge/🗺️_Districts-View-0ea5e9?style=for-the-badge)](https://sindh-food-supply-tracking-dashboar.vercel.app/districts)
+[![Alerts](https://img.shields.io/badge/🚨_Alerts-Live-e24b4a?style=for-the-badge)](https://sindh-food-supply-tracking-dashboar.vercel.app/alerts)
+
+![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=flat&logo=nextdotjs)
+![TypeScript](https://img.shields.io/badge/TypeScript-93%25-3178C6?style=flat&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=flat&logo=tailwindcss)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?style=flat&logo=vercel)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+
+</div>
 
 ---
 
-## 🏗️ Tech Stack
+## 🎯 The Problem
+
+Sindh is Pakistan's most food-stressed province — home to 25.45M people across 8 districts with vastly different supply realities. Despite this:
+
+- Field officers have no real-time view of district-level supply gaps
+- Critical shortages (IPC Phase 4) are identified days after they occur
+- No unified dashboard exists for FAO/WFP field coordinators to act on
+- Data lives in spreadsheets, not operational systems
+
+**36.9% of rural Sindh faces food insecurity** (WFP Pakistan, 2024). The monitoring infrastructure to respond doesn't exist at scale.
+
+---
+
+## 💡 The Solution
+
+A humanitarian-grade food security monitoring platform built to FAO/WFP operational standards — tracking supply, demand, and gap metrics across all 8 Sindh districts with live alert classification and CSV export for field use.
+
+> Aligned with FAO Strategic Framework 2022–2031 and WFP Emergency Response Protocol ERP-7.
+> Supports SDG 2 (Zero Hunger) · SDG 9 (Infrastructure) · SDG 17 (Partnerships)
+
+---
+
+## 📊 Live Platform Metrics
+
+| Metric | Value |
+|---|---|
+| 🏙️ Districts Monitored | 8 (full Sindh coverage) |
+| 👥 Population Covered | 25.45M |
+| 🌾 Total Food Supply Tracked | 2.92 MT |
+| 🚨 Overall Supply Gap | 30% (demand exceeds supply) |
+| ⚠️ Critical Districts | 4 (IPC Phase 4 — Acute) |
+| 🔴 Emergency Level | HIGH — 8 districts at risk |
+| 🔄 Alert Refresh Rate | Every 30 seconds |
+
+---
+
+## ✨ Features
+
+### 📊 Dashboard Overview
+Live KPI cards showing total food supply, population covered, supply gap percentage, critical district count, and emergency level. District coverage bars with real-time status classification (Critical / Warning / Stable).
+
+### 🗺️ District Monitor
+Sortable, searchable table across all 8 districts showing population, supply (T), demand (T), gap percentage, and IPC status. One-click drill-down into each district. CSV export for field teams.
+
+**Districts tracked:** Badin · Dadu · Hyderabad · Karachi · Larkana · Sukkur · Thatta · Mirpur Khas
+
+### 🚨 Alerts & Risk Feed
+Real-time event timeline with severity classification (Critical / Warning / Stable). Auto-refreshes every 30 seconds. Searchable by district or issue type. Filter by severity. Show/hide resolved events.
+
+### 📱 Responsive Design
+Collapsible sidebar, mobile-optimized layout for field use on low-bandwidth connections.
+
+---
+
+## 🧠 IPC Classification System
+
+| Status | Gap Threshold | IPC Phase | Meaning |
+|---|---|---|---|
+| 🔴 Critical | Gap > 40% | Phase 4 — Acute | Emergency distribution required |
+| 🟡 Warning | Gap 20–40% | Phase 3 — Stressed | Intervention needed |
+| 🟢 Stable | Gap < 20% | Phase 1–2 | Monitoring only |
+
+Based on **IPC (Integrated Food Security Phase Classification)** international standards.
+
+---
+
+## 🖼️ Screenshots
+
+<div align="center">
+
+**Dashboard Overview**
+<img src="docs/screenshots/Food-Security-Dashboard.jpg" alt="Dashboard" width="100%">
+
+**District Monitor**
+<img src="docs/screenshots/Food-Security-District.jpg" alt="Districts" width="100%">
+
+**Alerts & Risk Feed**
+<img src="docs/screenshots/Food-Security-alert.jpg" alt="Alerts" width="100%">
+
+</div>
+
+---
+
+## 🛠️ Tech Stack
 
 | Layer | Technology |
 |---|---|
-| Framework | Next.js 14 (App Router) |
-| UI | React 18 + Tailwind CSS |
-| Charts | Recharts |
-| Language | TypeScript |
-| Deployment | Vercel |
+| **Framework** | Next.js 14 (App Router) |
+| **Language** | TypeScript |
+| **UI** | React 18 + Tailwind CSS |
+| **Charts** | Recharts |
+| **Fonts** | Fraunces (display) + DM Sans (body) |
+| **Deployment** | Vercel |
+| **Data Standards** | FAO Food Balance Sheet · IPC · WFP ERP-7 |
 
 ---
 
-## 📦 Project Structure
-
-```
-sindh-food-dashboard/
-├── app/
-│   ├── layout.tsx              # Root layout (sidebar + topbar)
-│   ├── page.tsx                # Redirects → /dashboard
-│   ├── dashboard/page.tsx      # Main overview dashboard
-│   ├── districts/
-│   │   ├── page.tsx            # Sortable district table
-│   │   └── [id]/page.tsx       # Individual district deep-dive
-│   ├── alerts/page.tsx         # Live alert feed with filters
-│   └── api/
-│       ├── districts/route.ts  # GET /api/districts
-│       ├── summary/route.ts    # GET /api/summary
-│       ├── alerts/route.ts     # GET /api/alerts?type=Critical
-│       └── commodities/route.ts # GET /api/commodities
-├── components/
-│   ├── layout/
-│   │   ├── Sidebar.tsx         # Collapsible sidebar navigation
-│   │   └── TopBar.tsx          # Top bar with live clock
-│   ├── ui/
-│   │   ├── KpiCard.tsx         # Animated KPI metric cards
-│   │   ├── StatusChip.tsx      # Status badge (Critical/Warning/Stable)
-│   │   ├── DistrictBar.tsx     # Animated progress bar per district
-│   │   ├── AlertItem.tsx       # Alert event card
-│   │   └── Skeleton.tsx        # Loading skeletons
-│   └── charts/
-│       ├── CommodityChart.tsx  # Doughnut chart (Recharts)
-│       ├── GapBarChart.tsx     # Supply vs Demand bar chart
-│       └── TrendChart.tsx      # 30-day trend line chart
-├── data/
-│   ├── districts.ts            # Sindh district data + calculations
-│   └── alerts.ts               # Alert generation with realistic messages
-├── lib/
-│   ├── types.ts                # TypeScript interfaces
-│   └── utils.ts                # Formatters, exportToCSV, helpers
-├── styles/globals.css          # Tailwind base + custom animations
-├── tailwind.config.ts          # Custom green color palette
-├── next.config.js
-├── tsconfig.json
-└── package.json
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18.17 or later
-- npm or yarn
-
-### Install & Run Locally
-
-```bash
-# Clone the repo
-git clone https://github.com/YOUR_USERNAME/sindh-food-dashboard.git
-cd sindh-food-dashboard
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) — it redirects to `/dashboard`.
-
-### Build for Production
-
-```bash
-npm run build
-npm start
-```
-
----
-
-## 🌐 Deploy on Vercel
-
-### Method 1 — Vercel CLI (Recommended)
-
-```bash
-npm install -g vercel
-vercel
-# Follow prompts — framework auto-detected as Next.js
-```
-
-### Method 2 — GitHub Integration
-
-1. Push this project to a GitHub repository
-2. Go to [vercel.com/new](https://vercel.com/new)
-3. Import your repository
-4. Vercel auto-detects Next.js — click **Deploy**
-5. Your dashboard is live in ~60 seconds
-
-### Method 3 — Direct Deploy Button
-
-Add this to your GitHub README after setting up the repo:
-
-```
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/sindh-food-dashboard)
-```
-
----
-
-## 📊 Data Model
+## 📐 Data Methodology
 
 ### Food Demand Calculation
 ```
@@ -133,16 +129,9 @@ demand_tons = (population × 164 kg/person/year) / 1000
 ```
 Based on FAO South Asia baseline of 2,100 kcal/day → ~164 kg grain equivalent/year.
 
-### Status Classification
-```
-gap > 40%      → Critical  (IPC Phase 4 — Acute)
-gap 20–40%     → Warning   (IPC Phase 3 — Stressed)
-gap < 20%      → Stable    (IPC Phase 1-2)
-```
-
 ### API Endpoints
 
-| Endpoint | Method | Description |
+| Endpoint | Method | Returns |
 |---|---|---|
 | `/api/districts` | GET | All 8 districts with computed metrics |
 | `/api/summary` | GET | Aggregated KPIs and emergency level |
@@ -151,53 +140,73 @@ gap < 20%      → Stable    (IPC Phase 1-2)
 
 ---
 
-## 🎨 Design System
+## 🚀 Quick Start
 
-**Theme:** Humanitarian / Agriculture Green (FAO-style)
+### Prerequisites
+- Node.js 18+
+- npm 10+
 
-| Token | Value | Usage |
-|---|---|---|
-| `forest-500` | `#227539` | Primary CTA, stable status |
-| `forest-900` | `#0d2e17` | Dark backgrounds, sidebar |
-| `amber-harvest` | `#c9890e` | Warning states |
-| `earth-red` | `#b84040` | Critical alerts |
-| `sage-50` | `#f0f8f2` | Page background |
+### Setup
 
-**Fonts:** Fraunces (display, italic) + DM Sans (body)
+```bash
+# 1. Clone
+git clone https://github.com/Mujahidaryan/Sindh_FoodSupply_Tracking_Dashboard.git
+cd Sindh_FoodSupply_Tracking_Dashboard
+
+# 2. Install
+npm install
+
+# 3. Run
+npm run dev
+# Open http://localhost:3000 — redirects to /dashboard
+```
+
+### Build for Production
+```bash
+npm run build
+npm start
+```
 
 ---
 
-## 🧠 Features
+## ☁️ Deploy on Vercel
 
-- ✅ **Dashboard** — KPI cards, district bars, commodity chart, trend simulation, alert feed
-- ✅ **Districts** — Searchable/sortable table, status filters, CSV export
-- ✅ **District Detail** — Per-capita supply, coverage bar, commodity mix, risk assessment
-- ✅ **Alerts** — Live feed, severity filter, search, auto-refresh
-- ✅ **API routes** — RESTful JSON endpoints
-- ✅ **Responsive** — Mobile, tablet, desktop
-- ✅ **Animations** — Page load, bar fills, chart entrance, hover states
-- ✅ **Loading skeletons** — Graceful loading states
-- ✅ **CSV export** — Download district data
+1. Push to GitHub
+2. Go to [vercel.com/new](https://vercel.com/new) → Import this repo
+3. Framework auto-detected as Next.js
+4. Click **Deploy** — live in ~60 seconds
 
 ---
 
-## 📋 Alignment with International Standards
+## 🌍 International Standards Alignment
 
-This prototype references:
-- **IPC (Integrated Food Security Phase Classification)** — status thresholds
-- **FAO Food Balance Sheet methodology** — consumption factor baseline
-- **WFP Emergency Response Protocol ERP-7** — alert messaging templates
-- **PDMA Sindh** — district administrative boundaries
+| Standard | Application |
+|---|---|
+| **IPC Phase Classification** | District status thresholds (Critical/Warning/Stable) |
+| **FAO Food Balance Sheet** | Per-capita consumption baseline (164 kg/year) |
+| **WFP ERP-7** | Alert messaging templates |
+| **PDMA Sindh** | District administrative boundaries |
+| **SDG 2** | Zero Hunger — direct alignment |
 
 ---
 
 ## 👤 Author
 
-Developed by **Muhammad Mujahid** — Full Stack Developer, Karachi, Pakistan 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/muhammad-mujahid-dev) [![GitHub](https://img.shields.io/badge/GitHub-Mujahidaryan-181717?style=flat&logo=github)](https://github.com/Mujahidaryan)
+**Muhammad Mujahid** — Full Stack Developer, Karachi, Pakistan
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/muhammad-mujahid-dev)
+[![GitHub](https://img.shields.io/badge/GitHub-Mujahidaryan-181717?style=flat&logo=github)](https://github.com/Mujahidaryan)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-4F46E5?style=flat)](https://my-portfolio-swart-nu-73.vercel.app)
+[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=flat&logo=gmail)](mailto:mujahidaryan222149@gmail.com)
 
 ---
 
 ## 📄 License
 
-MIT — Free to use for educational, research, and humanitarian purposes.
+MIT © 2026 Muhammad Mujahid — Free to use for educational, research, and humanitarian purposes.
+
+---
+
+<div align="center">
+  <sub>Built for Sindh's food security. Aligned with FAO / WFP humanitarian standards.</sub>
+</div>
