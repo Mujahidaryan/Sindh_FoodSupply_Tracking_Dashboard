@@ -193,8 +193,8 @@ This prototype references:
 
 ## 👤 Author
 
-Developed by **Humanitarian Data Systems Unit**  
-Prototype aligned with FAO / WFP / Sindh Food Authority standards.
+Developed by **Muhammad Mujahid** — Full Stack Developer, Karachi, Pakistan 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/muhammad-mujahid-dev) [![GitHub](https://img.shields.io/badge/GitHub-Mujahidaryan-181717?style=flat&logo=github)](https://github.com/Mujahidaryan)
 
 ---
 
